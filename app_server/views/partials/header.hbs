@@ -6,15 +6,16 @@
 --}}
 
 <header class="site-header wrap">
-  <a class="brand" href="/" aria-label="Animal Rescue System home">
-    <img class="brand-logo" src="/images/grazioso_salvare_logo.png" alt="Grazioso Salvare">
-    <span>Animal Rescue System</span>
-  </a>
-  <nav aria-label="Main navigation">
-    <a href="/" {{#if home}}aria-current="page"{{/if}}>Home</a>
-    <a href="/about" {{#if about}}aria-current="page"{{/if}}>About</a>
-    <a href="/animal-intake" {{#if intake}}aria-current="page"{{/if}}>Animal Intake</a>
-    <a href="/find-an-animal" {{#if find}}aria-current="page"{{/if}}>Find an Animal</a>
-    <a class="nav-button" href="/rescue_animals" {{#if all}}aria-current="page"{{/if}}>See All Animals &rarr;</a>
-  </nav>
+    <a class="brand" href="/">
+        <img class="brand-logo" src="/images/grazioso_salvare_logo.png" alt="Grazioso Salvare">
+        <span>Animal Rescue System</span>
+    </a>
+
+    <nav>
+        <a href="/" class="{{#if home}}active{{/if}}">Home</a>
+        <a href="/about" class="{{#if about}}active{{/if}}">About</a>
+        <a href="/animal-intake" class="{{#if intake}}active{{/if}}">Animal Intake</a>
+        <a href="/find-an-animal" class="{{#if find}}active{{/if}}">Find an Animal</a>
+        <a href="/rescue_animals" class="{{#if all}}active{{/if}}">See All Animals</a> 
+    </nav>
 </header>

@@ -1,6 +1,5 @@
 :root {
   --ink: #203848;
-  --green: #254f60;
   --cream: #f5f6f4;
   --muted: #5d6b73;
   --line: #d9e0e2;
@@ -80,15 +79,9 @@ nav a {
   padding: 10px 0;
 }
 
-nav a[aria-current=page] {
+nav a.active {
   text-decoration: underline;
   text-underline-offset: 7px;
-}
-
-.nav-button {
-  border: 1px solid var(--green);
-  border-radius: 6px;
-  padding: 11px 17px;
 }
 
 h1, h2, p {
@@ -164,6 +157,11 @@ h2 {
 
 .skip-link:focus {
   top: 10px;
+}
+
+.spec-note {
+    text-align: center;
+    font-style: italic;
 }
 
 @media (max-width: 1050px) {
