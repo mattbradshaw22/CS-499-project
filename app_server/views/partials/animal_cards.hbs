@@ -1,0 +1,41 @@
+<div class="animal-grid">
+  {{#each animals}}
+    <article class="animal-card">
+      {{#if image}}
+        <div class="animal-photo">
+          <img src="{{image}}" alt="{{name}}, a {{animalType}}" loading="lazy">
+        </div>
+      {{else}}
+        <div class="animal-placeholder" role="img" aria-label="No photo provided for {{name}}">
+          <span aria-hidden="true">🐾</span>
+          <small>No photo provided</small>
+        </div>
+      {{/if}}
+      <div class="animal-details">
+        <span class="tag">{{animalType}}</span>
+        <h3>{{name}}</h3>
+        {{#if breed}}<p>{{breed}}</p>{{/if}}
+        <dl class="animal-facts">
+          <div><dt>{{#if sample}}Age (years){{else}}Age{{/if}}</dt><dd>{{age}}</dd></div>
+          {{#if gender}}<div><dt>Gender</dt><dd>{{gender}}</dd></div>{{/if}}
+          {{#if weight}}<div><dt>Weight*</dt><dd>{{weight}}</dd></div>{{/if}}
+          {{#if acquisitionDate}}<div><dt>Acquisition date</dt><dd>{{acquisitionDate}}</dd></div>{{/if}}
+          {{#if acquisitionCountry}}<div><dt>Acquisition country</dt><dd>{{acquisitionCountry}}</dd></div>{{/if}}
+          <div><dt>Training status</dt><dd>{{trainingStatus}}</dd></div>
+          <div><dt>Service country</dt><dd>{{inServiceCountry}}</dd></div>
+          <div><dt>Reserved</dt><dd>{{#if reserved}}Yes{{else}}No{{/if}}</dd></div>
+        </dl>
+        {{#if description}}<p>{{description}}</p>{{/if}}
+        <span class="record-label">
+          {{#if sample}}Original Java sample record. *Weight unit unspecified.{{else}}New intake record{{/if}}
+        </span>
+      </div>
+    </article>
+  {{else}}
+    <div class="empty-state">
+      <h2>No animals found.</h2>
+      <p>Try a different name or animal type.</p>
+      <a class="text-link" href="/find-an-animal">Clear your search &rarr;</a>
+    </div>
+  {{/each}}
+</div>

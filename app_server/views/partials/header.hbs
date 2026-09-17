@@ -1,0 +1,20 @@
+{{!--
+
+ header file to be used on all web pages. The "home", "about", "intake", "find", and "all" variables are set in the route
+ controllers to indicate which page is currently being viewed. This allows the header to highlight the current page in the navigation menu.
+
+--}}
+
+<header class="site-header wrap">
+  <a class="brand" href="/" aria-label="Animal Rescue System home">
+    <img class="brand-logo" src="/images/grazioso_salvare_logo.png" alt="Grazioso Salvare">
+    <span>Animal Rescue System</span>
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="/" {{#if home}}aria-current="page"{{/if}}>Home</a>
+    <a href="/about" {{#if about}}aria-current="page"{{/if}}>About</a>
+    <a href="/animal-intake" {{#if intake}}aria-current="page"{{/if}}>Animal Intake</a>
+    <a href="/find-an-animal" {{#if find}}aria-current="page"{{/if}}>Find an Animal</a>
+    <a class="nav-button" href="/rescue_animals" {{#if all}}aria-current="page"{{/if}}>See All Animals &rarr;</a>
+  </nav>
+</header>
