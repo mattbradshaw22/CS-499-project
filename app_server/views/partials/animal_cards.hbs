@@ -1,41 +1,51 @@
 <div class="animal-grid">
   {{#each animals}}
     <article class="animal-card">
-      {{#if image}}
+      {{#if imagePath}}
         <div class="animal-photo">
-          <img src="{{image}}" alt="{{name}}, a {{animalType}}" loading="lazy">
+          <img src="{{imagePath}}" alt="{{name}}, a {{#if species}}{{species}}{{else}}{{breed}}{{/if}} {{animalType}}" loading="lazy">
         </div>
       {{else}}
         <div class="animal-placeholder">
-          <span>🐾</span>
           <small>No photo provided</small>
         </div>
       {{/if}}
+
       <div class="animal-details">
         <span class="tag">{{animalType}}</span>
         <h3>{{name}}</h3>
-        {{#if breed}}<p>{{breed}}</p>{{/if}}
+
+        {{#if species}}
+          <p>{{species}}</p>
+        {{else}}
+          {{#if breed}}<p>{{breed}}</p>{{/if}}
+        {{/if}}
+
         <dl class="animal-facts">
-          <div><dt>{{#if sample}}Age (years){{else}}Age{{/if}}</dt><dd>{{age}}</dd></div>
+          {{#if species}}<div><dt>Species</dt><dd>{{species}}</dd></div>{{/if}}
+          {{#if breed}}{{#unless species}}<div><dt>Breed</dt><dd>{{breed}}</dd></div>{{/unless}}{{/if}}
           {{#if gender}}<div><dt>Gender</dt><dd>{{gender}}</dd></div>{{/if}}
-          {{#if weight}}<div><dt>Weight*</dt><dd>{{weight}}</dd></div>{{/if}}
-          {{#if acquisitionDate}}<div><dt>Acquisition date</dt><dd>{{acquisitionDate}}</dd></div>{{/if}}
-          {{#if acquisitionCountry}}<div><dt>Acquisition country</dt><dd>{{acquisitionCountry}}</dd></div>{{/if}}
-          <div><dt>Training status</dt><dd>{{trainingStatus}}</dd></div>
-          <div><dt>Service country</dt><dd>{{inServiceCountry}}</dd></div>
+          {{#if age}}<div><dt>Age</dt><dd>{{age}}</dd></div>{{/if}}
+          {{#if weight}}<div><dt>Weight</dt><dd>{{weight}}</dd></div>{{/if}}
+          {{#if tailLength}}<div><dt>Tail Length</dt><dd>{{tailLength}}</dd></div>{{/if}}
+          {{#if height}}<div><dt>Height</dt><dd>{{height}}</dd></div>{{/if}}
+          {{#if bodyLength}}<div><dt>Body Length</dt><dd>{{bodyLength}}</dd></div>{{/if}}
+          {{#if acquisitionDate}}<div><dt>Acquisition Date</dt><dd>{{acquisitionDate}}</dd></div>{{/if}}
+          {{#if acquisitionLocation}}
+            <div><dt>Acquisition City</dt><dd>{{acquisitionLocation.city}}</dd></div>
+            <div><dt>Acquisition State</dt><dd>{{acquisitionLocation.state}}</dd></div>
+            <div><dt>Acquisition Country</dt><dd>{{acquisitionLocation.country}}</dd></div>
+          {{/if}}
+          {{#if trainingStatus}}<div><dt>Training Status</dt><dd>{{trainingStatus}}</dd></div>{{/if}}
+          {{#if graduationDate}}<div><dt>Graduation Date</dt><dd>{{graduationDate}}</dd></div>{{/if}}
           <div><dt>Reserved</dt><dd>{{#if reserved}}Yes{{else}}No{{/if}}</dd></div>
         </dl>
-        {{#if description}}<p>{{description}}</p>{{/if}}
-        <span class="record-label">
-          {{#if sample}}Original Java sample record. *Weight unit unspecified.{{else}}New intake record{{/if}}
-        </span>
       </div>
     </article>
   {{else}}
     <div class="empty-state">
       <h2>No animals found.</h2>
-      <p>Try a different name or animal type.</p>
-      <a class="text-link" href="/find-an-animal">Clear your search &rarr;</a>
+      <p>No animal records are available yet.</p>
     </div>
   {{/each}}
 </div>

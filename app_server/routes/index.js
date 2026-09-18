@@ -5,6 +5,5 @@ const animals = require('../controllers/rescue_animals');
 router.get('/', main.index);
 router.get('/about', main.about);
 router.get('/animal-intake', animals.intake);
-router.post('/animal-intake', animals.create);
 router.get('/find-an-animal', animals.find);
 module.exports = router;
