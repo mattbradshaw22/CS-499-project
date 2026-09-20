@@ -68,8 +68,3 @@ typings/
 !.vscode/extensions.json
 *.code-workspace
 
-# Local project planning notes
-/PROJECT_PLAN.md
-
-# test coverage folder
-test/
