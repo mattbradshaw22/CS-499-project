@@ -1,6 +1,7 @@
-const animals = require('../../data/animals');
+var animals = require('../../data/animals');
 
-exports.index = (req, res) => {
+/* GET Homepage */
+const index = (req, res) => {
   const reservedAnimals = animals.filter(animal => animal.reserved);
   const featuredAnimal = reservedAnimals[Math.floor(Math.random() * reservedAnimals.length)] || animals[0];
 
@@ -11,4 +12,12 @@ exports.index = (req, res) => {
   });
 };
 
-exports.about = (req, res) => res.render('about', { title: 'About', about: true });
+/* GET About page */
+const about = (req, res) => {
+  res.render('about', { title: 'About', about: true });
+};
+
+module.exports = {
+  index,
+  about
+};

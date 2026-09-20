@@ -1,7 +1,15 @@
+{{!--
+  Animal Cards Partial
+  Renders a responsive card grid for any animals collection passed to the view.
+--}}
+
+{{!-- Animal Grid --}}
 <div class="animal-grid">
   {{#each animals}}
+    {{!-- Individual Animal Card --}}
     <article class="animal-card">
       {{#if imagePath}}
+        {{!-- Animal Photo --}}
         <div class="animal-photo">
           <img src="{{imagePath}}" alt="{{name}}, a {{#if species}}{{species}}{{else}}{{breed}}{{/if}} {{animalType}}" loading="lazy">
         </div>
@@ -11,6 +19,7 @@
         </div>
       {{/if}}
 
+      {{!-- Animal Details --}}
       <div class="animal-details">
         <span class="tag">{{animalType}}</span>
         <h3>{{name}}</h3>
@@ -21,6 +30,7 @@
           {{#if breed}}<p>{{breed}}</p>{{/if}}
         {{/if}}
 
+        {{!-- Animal Facts List --}}
         <dl class="animal-facts">
           {{#if species}}<div><dt>Species</dt><dd>{{species}}</dd></div>{{/if}}
           {{#if breed}}{{#unless species}}<div><dt>Breed</dt><dd>{{breed}}</dd></div>{{/unless}}{{/if}}
@@ -43,6 +53,7 @@
       </div>
     </article>
   {{else}}
+    {{!-- Empty State --}}
     <div class="empty-state">
       <h2>No animals found.</h2>
       <p>No animal records are available yet.</p>

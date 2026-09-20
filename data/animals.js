@@ -26,9 +26,10 @@
     */
 
 
-  // new sample data for the animals.js file, including monkeys and dogs with various breeds, genders, ages, weights, acquisition dates, locations, training statuses, reserved statuses, graduation dates, and image paths.
-  // I used google gemini to generate this data, and it is not based on any real animals or locations. the data is purely fictional and for testing purposes only.
-  // I found images for each type of animal from google that are free to use with the creative commons license. 
+// Animal Data
+// Fictional dog and monkey records used by the site views and tests.
+// Each record includes profile details, acquisition location, training status,
+// reservation status, graduation date, and a public image path.
 const animals = [
   {  
     "id": 1,

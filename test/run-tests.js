@@ -6,12 +6,16 @@ const path = require('node:path');
 const app = require('../app');
 const animals = require('../data/animals');
 
+// Test Registry
+// Stores each test so the lightweight runner can execute them in order.
 const tests = [];
 
 function test(name, fn) {
   tests.push({ name, fn });
 }
 
+// HTTP Test Helper
+// Sends a request to the local Express server and returns the rendered response.
 function request(server, requestPath) {
   const { port } = server.address();
 
@@ -32,6 +36,8 @@ function request(server, requestPath) {
   });
 }
 
+// Data Validation Tests
+// Confirms each animal record contains the fields used by the Handlebars views.
 test('animal records include the fields used by the views', () => {
   assert.equal(animals.length, 40);
 
@@ -67,6 +73,8 @@ test('animal records include the fields used by the views', () => {
   }
 });
 
+// Asset Validation Tests
+// Confirms every animal image path points to a real file in the public folder.
 test('all image paths point to files in public', () => {
   for (const animal of animals) {
     const imageFile = path.join(__dirname, '..', 'public', animal.imagePath);
@@ -74,6 +82,8 @@ test('all image paths point to files in public', () => {
   }
 });
 
+// Data Integrity Tests
+// Confirms each animal and acquisition location can be identified uniquely.
 test('animal ids and acquisition locations are unique', () => {
   const ids = new Set(animals.map(animal => animal.id));
   const locations = new Set(animals.map(animal => `${animal.acquisitionLocation.city}, ${animal.acquisitionLocation.state}`));
@@ -82,6 +92,8 @@ test('animal ids and acquisition locations are unique', () => {
   assert.equal(locations.size, animals.length);
 });
 
+// Route Rendering Tests
+// Starts the Express app on a temporary port and verifies key pages render.
 test('website routes render expected pages', async () => {
   const server = app.listen(0);
 
@@ -124,6 +136,34 @@ test('website routes render expected pages', async () => {
   }
 });
 
+// API Route Tests
+// Verifies the JSON animal endpoints follow the Travlr-style app_api pattern.
+test('animal api routes return JSON data', async () => {
+  const server = app.listen(0);
+
+  try {
+    const animalList = await request(server, '/api/animals');
+    assert.equal(animalList.statusCode, 200);
+    const animalRecords = JSON.parse(animalList.body);
+    assert.equal(animalRecords.length, animals.length);
+    assert.equal(animalRecords[0].name, animals[0].name);
+
+    const animalDetail = await request(server, '/api/animals/1');
+    assert.equal(animalDetail.statusCode, 200);
+    const animalRecord = JSON.parse(animalDetail.body);
+    assert.equal(animalRecord.id, 1);
+    assert.equal(animalRecord.name, 'Rocky');
+
+    const missingAnimal = await request(server, '/api/animals/9999');
+    assert.equal(missingAnimal.statusCode, 404);
+    assert.deepEqual(JSON.parse(missingAnimal.body), { message: 'Animal not found' });
+  } finally {
+    server.close();
+  }
+});
+
+// Test Runner
+// Runs all registered tests and reports pass/fail results to the terminal.
 (async () => {
   let failures = 0;
 

@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
-const main = require('../controllers/main');
-const animals = require('../controllers/rescue_animals');
-router.get('/', main.index);
-router.get('/about', main.about);
-router.get('/animal-intake', animals.intake);
-router.get('/find-an-animal', animals.find);
+var ctrlMain = require('../controllers/main');
+var ctrlAnimals = require('../controllers/rescue_animals');
+
+/* GET home page. */
+router.get('/', ctrlMain.index);
+
+/* GET about page. */
+router.get('/about', ctrlMain.about);
+
+/* GET animal intake page. */
+router.get('/animal-intake', ctrlAnimals.intake);
+
+/* GET find an animal page. */
+router.get('/find-an-animal', ctrlAnimals.find);
+
 module.exports = router;
