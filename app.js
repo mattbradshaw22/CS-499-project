@@ -27,6 +27,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// serve built Angular files for the admin SPA
+app.use(
+  '/angular',
+   express.static(
+    path.join(
+      __dirname,
+      'app_admin',
+      'dist',
+      'AnimalRescue-admin',
+    'browser'
+    )
+  )
+);
+
 // wire up routes to controllers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

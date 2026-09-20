@@ -70,3 +70,6 @@ typings/
 
 # Local project planning notes
 /PROJECT_PLAN.md
+
+# test coverage folder
+test/
