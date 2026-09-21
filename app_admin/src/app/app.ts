@@ -1,3 +1,4 @@
+// Defines the root Angular application component and imports the intake experience.
 import { Component } from '@angular/core';
 import { Intake } from './components/intake/intake';
 

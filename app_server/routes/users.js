@@ -1,3 +1,5 @@
+// Defines placeholder user-facing routes for the Express web application.
+
 var express = require('express');
 var router = express.Router();
 

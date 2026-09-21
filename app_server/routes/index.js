@@ -1,3 +1,5 @@
+// Connects the main public website routes to their controllers.
+
 var express = require('express');
 var router = express.Router();
 var ctrlMain = require('../controllers/main');

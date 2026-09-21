@@ -1,3 +1,5 @@
+// Connects rescue animal page routes to their server-side controllers.
+
 var express = require('express');
 var router = express.Router();
 var ctrlAnimals = require('../controllers/rescue_animals');

@@ -1,3 +1,4 @@
+// Purpose: Verifies the Angular animal intake component can be created by the test harness.
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Intake } from './intake';
 

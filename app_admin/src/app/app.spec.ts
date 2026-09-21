@@ -1,3 +1,4 @@
+// Verifies the root Angular application component can be created.
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 

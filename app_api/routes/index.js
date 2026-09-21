@@ -1,3 +1,5 @@
+// Registers API endpoints for rescue animal data.
+
 var express = require('express');
 var router = express.Router();
 var ctrlAnimals = require('../controllers/animals');

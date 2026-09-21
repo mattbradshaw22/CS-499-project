@@ -1,4 +1,5 @@
 {
+  // Purpose: Recommends VS Code extensions useful for working on the Angular admin app.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
   "recommendations": ["angular.ng-template"]
 }

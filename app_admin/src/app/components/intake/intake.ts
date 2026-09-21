@@ -1,3 +1,4 @@
+// Defines the Angular animal intake form component and validation rules.
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';

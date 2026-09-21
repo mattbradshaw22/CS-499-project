@@ -1,3 +1,5 @@
+// Handles rendering for public website pages including home, about, intake, and find.
+
 var animals = require('../../data/animals');
 
 /* GET Homepage */

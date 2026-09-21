@@ -1,3 +1,5 @@
+// Handles rendering for the full rescue animal catalog page.
+
 var animals = require('../../data/animals');
 
 /* GET Rescue Animals page */

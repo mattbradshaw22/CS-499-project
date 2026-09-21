@@ -1,3 +1,5 @@
+// Provides the in-memory rescue animal dataset used by the web views and API controllers.
+
 /* Sample records from Driver file initializeDogList() from my IT 145 project.
   {
     name: 'Spot', animalType: 'Dog', breed: 'German Shepherd', gender: 'male',

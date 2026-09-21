@@ -1,3 +1,5 @@
+// Handles API responses for rescue animal collection requests.
+
 var animals = require('../../data/animals');
 
 /* GET animal list */

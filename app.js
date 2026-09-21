@@ -1,3 +1,4 @@
+// Configures the Express application, middleware, view engine, static assets, and route mounting.
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
