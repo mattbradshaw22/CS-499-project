@@ -37,8 +37,7 @@ function request(server, requestPath) {
   });
 }
 
-// Data Validation Tests
-// Confirms each animal record contains the fields used by the Handlebars views.
+// Checks that every animal record has the fields and type-specific details required by the views.
 test('animal records include the fields used by the views', () => {
   assert.equal(animals.length, 40);
 
@@ -74,8 +73,7 @@ test('animal records include the fields used by the views', () => {
   }
 });
 
-// Asset Validation Tests
-// Confirms every animal image path points to a real file in the public folder.
+// Checks that each animal image path resolves to an existing public asset.
 test('all image paths point to files in public', () => {
   for (const animal of animals) {
     const imageFile = path.join(__dirname, '..', 'public', animal.imagePath);
@@ -83,8 +81,7 @@ test('all image paths point to files in public', () => {
   }
 });
 
-// Data Integrity Tests
-// Confirms each animal and acquisition location can be identified uniquely.
+// Checks that animal ids and city/state acquisition locations do not repeat.
 test('animal ids and acquisition locations are unique', () => {
   const ids = new Set(animals.map(animal => animal.id));
   const locations = new Set(animals.map(animal => `${animal.acquisitionLocation.city}, ${animal.acquisitionLocation.state}`));
@@ -93,8 +90,15 @@ test('animal ids and acquisition locations are unique', () => {
   assert.equal(locations.size, animals.length);
 });
 
-// Route Rendering Tests
-// Starts the Express app on a temporary port and verifies key pages render.
+// Checks that both supported animal categories are represented in the fixture data.
+test('animal data includes dog and monkey records', () => {
+  const animalTypes = new Set(animals.map(animal => animal.animalType));
+
+  assert.ok(animalTypes.has('Dog'), 'dataset should include at least one dog');
+  assert.ok(animalTypes.has('Monkey'), 'dataset should include at least one monkey');
+});
+
+// Checks the public site routes, expected page content, navigation links, and 404 handling.
 test('website routes render expected pages', async () => {
   const server = app.listen(0);
 
@@ -105,6 +109,11 @@ test('website routes render expected pages', async () => {
     assert.match(home.body, /SearchAndRescueDog\.jfif/);
     assert.match(home.body, /SearchAndRescueDog2\.jfif/);
     assert.match(home.body, /Featured Animal/);
+    assert.match(home.body, /href="\/"/);
+    assert.match(home.body, /href="\/about"/);
+    assert.match(home.body, /href="\/rescue_animals"/);
+    assert.match(home.body, /href="\/find-an-animal"/);
+    assert.match(home.body, /href="\/animal-intake"/);
     assert.equal((home.body.match(/animal-card/g) || []).length, 1);
 
     const featuredAnimal = animals.find(animal => home.body.includes(`<h3>${animal.name}</h3>`));
@@ -132,13 +141,34 @@ test('website routes render expected pages', async () => {
     assert.equal(intake.statusCode, 200);
     assert.match(intake.body, /ANIMAL INTAKE/);
     assert.doesNotMatch(intake.body, /<form/i);
+
+    const missingPage = await request(server, '/does-not-exist');
+    assert.equal(missingPage.statusCode, 404);
+    assert.match(missingPage.body, /Not Found/);
   } finally {
     server.close();
   }
 });
 
-// API Route Tests
-// Verifies the JSON animal endpoints follow the Travlr-style app_api pattern.
+// Checks that Express can serve the generated Angular admin entry point.
+test('angular admin build is served by express', async () => {
+  const server = app.listen(0);
+
+  try {
+    const angularApp = await request(server, '/angular/');
+    assert.equal(angularApp.statusCode, 200);
+    assert.match(angularApp.body, /Animal Rescue Admin/);
+    assert.match(angularApp.body, /<app-root>/);
+
+    const angularIndex = await request(server, '/angular/index.html');
+    assert.equal(angularIndex.statusCode, 200);
+    assert.match(angularIndex.body, /Animal Rescue Admin/);
+  } finally {
+    server.close();
+  }
+});
+
+// Checks list, detail, type-specific fields, missing records, and invalid animal id responses.
 test('animal api routes return JSON data', async () => {
   const server = app.listen(0);
 
@@ -148,16 +178,45 @@ test('animal api routes return JSON data', async () => {
     const animalRecords = JSON.parse(animalList.body);
     assert.equal(animalRecords.length, animals.length);
     assert.equal(animalRecords[0].name, animals[0].name);
+    assert.ok(animalRecords[0].acquisitionLocation);
+    assert.equal(typeof animalRecords[0].acquisitionLocation.city, 'string');
+    assert.equal(typeof animalRecords[0].reserved, 'boolean');
 
     const animalDetail = await request(server, '/api/animals/1');
     assert.equal(animalDetail.statusCode, 200);
     const animalRecord = JSON.parse(animalDetail.body);
     assert.equal(animalRecord.id, 1);
     assert.equal(animalRecord.name, 'Rocky');
+    assert.equal(animalRecord.animalType, 'Dog');
+    assert.ok(animalRecord.breed);
+
+    const monkey = animals.find(record => record.animalType === 'Monkey');
+    assert.ok(monkey, 'test fixture should include a monkey record');
+
+    const monkeyDetail = await request(server, `/api/animals/${monkey.id}`);
+    assert.equal(monkeyDetail.statusCode, 200);
+    const monkeyRecord = JSON.parse(monkeyDetail.body);
+    assert.equal(monkeyRecord.animalType, 'Monkey');
+    assert.ok(monkeyRecord.species);
+    assert.ok(monkeyRecord.tailLength);
+    assert.ok(monkeyRecord.height);
+    assert.ok(monkeyRecord.bodyLength);
 
     const missingAnimal = await request(server, '/api/animals/9999');
     assert.equal(missingAnimal.statusCode, 404);
     assert.deepEqual(JSON.parse(missingAnimal.body), { message: 'Animal not found' });
+
+    const nonNumericAnimal = await request(server, '/api/animals/not-a-number');
+    assert.equal(nonNumericAnimal.statusCode, 404);
+    assert.deepEqual(JSON.parse(nonNumericAnimal.body), { message: 'Animal not found' });
+
+    const zeroAnimal = await request(server, '/api/animals/0');
+    assert.equal(zeroAnimal.statusCode, 404);
+    assert.deepEqual(JSON.parse(zeroAnimal.body), { message: 'Animal not found' });
+
+    const negativeAnimal = await request(server, '/api/animals/-1');
+    assert.equal(negativeAnimal.statusCode, 404);
+    assert.deepEqual(JSON.parse(negativeAnimal.body), { message: 'Animal not found' });
   } finally {
     server.close();
   }

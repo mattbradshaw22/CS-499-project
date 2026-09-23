@@ -52,7 +52,8 @@ const animals = [
     "trainingStatus": "In Training",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/americanPitbullTerrier1.jfif"
+    "imagePath": "/images/americanPitbullTerrier1.jfif",
+    "description": ""
   },
   {
     "id": 2,
@@ -73,7 +74,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": true,
     "graduationDate": "2026-02-20",
-    "imagePath": "/images/americanPittbullTerrier2.jpg"
+    "imagePath": "/images/americanPittbullTerrier2.jpg",
+    "description": ""
   },
 
   {
@@ -95,7 +97,8 @@ const animals = [
     "trainingStatus": "Phase 2",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/beagle1.jfif"
+    "imagePath": "/images/beagle1.jfif",
+    "description": ""
   },
   {
     "id": 4,
@@ -116,7 +119,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": false,
     "graduationDate": "2026-04-15",
-    "imagePath": "/images/beagle2.jfif"
+    "imagePath": "/images/beagle2.jfif",
+    "description": ""
   },
 
   {
@@ -138,7 +142,8 @@ const animals = [
     "trainingStatus": "In Service",
     "reserved": true,
     "graduationDate": "2025-10-12",
-    "imagePath": "/images/belgianMalinois1.jfif"
+    "imagePath": "/images/belgianMalinois1.jfif",
+    "description": ""
   },
   {
     "id": 6,
@@ -159,7 +164,8 @@ const animals = [
     "trainingStatus": "Phase 3",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/belgianMalinois2.jfif"
+    "imagePath": "/images/belgianMalinois2.jfif",
+    "description": ""
   },
 
   {
@@ -181,7 +187,8 @@ const animals = [
     "trainingStatus": "In Training",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/BorderCollie1.jfif"
+    "imagePath": "/images/BorderCollie1.jfif",
+    "description": ""
   },
   {
     "id": 8,
@@ -202,7 +209,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": true,
     "graduationDate": "2026-01-18",
-    "imagePath": "/images/BorderCollie2.jfif"
+    "imagePath": "/images/BorderCollie2.jfif",
+    "description": ""
   },
 
   {
@@ -224,7 +232,8 @@ const animals = [
     "trainingStatus": "In Service",
     "reserved": true,
     "graduationDate": "2025-07-01",
-    "imagePath": "/images/Bloodhound1.jfif"
+    "imagePath": "/images/Bloodhound1.jfif",
+    "description": ""
   },
   {
     "id": 10,
@@ -245,7 +254,8 @@ const animals = [
     "trainingStatus": "Phase 3",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Bloodhound2.jfif"
+    "imagePath": "/images/Bloodhound2.jfif",
+    "description": ""
   },
 
   {
@@ -267,7 +277,8 @@ const animals = [
     "trainingStatus": "In Training",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Coonhound1.jfif"
+    "imagePath": "/images/Coonhound1.jfif",
+    "description": ""
   },
   {
     "id": 12,
@@ -288,7 +299,8 @@ const animals = [
     "trainingStatus": "Phase 2",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Coonhound2.jfif"
+    "imagePath": "/images/Coonhound2.jfif",
+    "description": ""
   },
 
   {
@@ -310,7 +322,8 @@ const animals = [
     "trainingStatus": "Phase 3",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/EnglishSpringerSpaniel1.jfif"
+    "imagePath": "/images/EnglishSpringerSpaniel1.jfif",
+    "description": ""
   },
   {
     "id": 14,
@@ -331,7 +344,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": true,
     "graduationDate": "2025-12-10",
-    "imagePath": "/images/EnglishSpringerSpaniel2.jfif"
+    "imagePath": "/images/EnglishSpringerSpaniel2.jfif",
+    "description": ""
   },
 
   {
@@ -353,7 +367,8 @@ const animals = [
     "trainingStatus": "In Service",
     "reserved": true,
     "graduationDate": "2025-11-15",
-    "imagePath": "/images/GermanShepherd1.jfif"
+    "imagePath": "/images/GermanShepherd1.jfif",
+    "description": ""
   },
   {
     "id": 16,
@@ -374,7 +389,8 @@ const animals = [
     "trainingStatus": "Phase 4",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/GermanShepherd2.jfif"
+    "imagePath": "/images/GermanShepherd2.jfif",
+    "description": ""
   },
 
   {
@@ -396,7 +412,8 @@ const animals = [
     "trainingStatus": "In Training",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/GermanShorthairedPointer.jfif"
+    "imagePath": "/images/GermanShorthairedPointer.jfif",
+    "description": ""
   },
   {
     "id": 18,
@@ -417,7 +434,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": false,
     "graduationDate": "2026-03-12",
-    "imagePath": "/images/GermanShorthairedPointer2.jfif"
+    "imagePath": "/images/GermanShorthairedPointer2.jfif",
+    "description": ""
   },
 
   {
@@ -439,7 +457,8 @@ const animals = [
     "trainingStatus": "Phase 4",
     "reserved": true,
     "graduationDate": null,
-    "imagePath": "/images/GoldenRetriever1.jfif"
+    "imagePath": "/images/GoldenRetriever1.jfif",
+    "description": ""
   },
   {
     "id": 20,
@@ -460,7 +479,8 @@ const animals = [
     "trainingStatus": "In Service",
     "reserved": true,
     "graduationDate": "2025-09-25",
-    "imagePath": "/images/GoldenRetriever2.jfif"
+    "imagePath": "/images/GoldenRetriever2.jfif",
+    "description": ""
   },
 
   {
@@ -482,7 +502,8 @@ const animals = [
     "trainingStatus": "Phase 2",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/LabradorRetriever1.jfif"
+    "imagePath": "/images/LabradorRetriever1.jfif",
+    "description": ""
   },
   {
     "id": 22,
@@ -503,7 +524,8 @@ const animals = [
     "trainingStatus": "In Service",
     "reserved": true,
     "graduationDate": "2025-06-08",
-    "imagePath": "/images/LabradorRetriever2.jfif"
+    "imagePath": "/images/LabradorRetriever2.jfif",
+    "description": ""
   },
 
   {
@@ -525,7 +547,8 @@ const animals = [
     "trainingStatus": "Phase 3",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/NovaScotiaDuckTollingRetriever1.jfif"
+    "imagePath": "/images/NovaScotiaDuckTollingRetriever1.jfif",
+    "description": ""
   },
   {
     "id": 24,
@@ -546,7 +569,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": false,
     "graduationDate": "2026-02-28",
-    "imagePath": "/images/NovaScotiaDuckTollingRetriever2.jfif"
+    "imagePath": "/images/NovaScotiaDuckTollingRetriever2.jfif",
+    "description": ""
   },
 
   {
@@ -568,7 +592,8 @@ const animals = [
     "trainingStatus": "In Training",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/RoughCollie1.jfif"
+    "imagePath": "/images/RoughCollie1.jfif",
+    "description": ""
   },
   {
     "id": 26,
@@ -589,7 +614,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": true,
     "graduationDate": "2025-12-22",
-    "imagePath": "/images/RoughCollie2.jfif"
+    "imagePath": "/images/RoughCollie2.jfif",
+    "description": ""
   },
 
   {
@@ -611,7 +637,8 @@ const animals = [
     "trainingStatus": "Phase 4",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/SmoothCollie1.jfif"
+    "imagePath": "/images/SmoothCollie1.jfif",
+    "description": ""
   },
   {
     "id": 28,
@@ -632,7 +659,8 @@ const animals = [
     "trainingStatus": "Phase 2",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/SmoothCollie2.jfif"
+    "imagePath": "/images/SmoothCollie2.jfif",
+    "description": ""
   },
 
   {
@@ -644,9 +672,9 @@ const animals = [
     "gender": "Male",
     "age": 4,
     "weight": 8,
-    "tailLength": "17 in",
-    "height": "15 in",
-    "bodyLength": "18 in",
+    "tailLength": 17,
+    "height": 15,
+    "bodyLength": 18,
     "acquisitionDate": "2025-01-10",
     "acquisitionLocation": {
       "city": "Concord",
@@ -658,7 +686,8 @@ const animals = [
     "trainingStatus": "In Training",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Capuchin1.jfif"
+    "imagePath": "/images/Capuchin1.jfif",
+    "description": ""
   },
   {
     "id": 30,
@@ -669,9 +698,9 @@ const animals = [
     "gender": "Female",
     "age": 5,
     "weight": 7,
-    "tailLength": "16 in",
-    "height": "14 in",
-    "bodyLength": "17 in",
+    "tailLength": 16,
+    "height": 14,
+    "bodyLength": 17,
     "acquisitionDate": "2024-06-21",
     "acquisitionLocation": {
       "city": "Trenton",
@@ -683,7 +712,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": true,
     "graduationDate": "2025-10-05",
-    "imagePath": "/images/Capuchin2.jfif"
+    "imagePath": "/images/Capuchin2.jfif",
+    "description": ""
   },
 
   {
@@ -695,9 +725,9 @@ const animals = [
     "gender": "Male",
     "age": 4,
     "weight": 14,
-    "tailLength": "22 in",
-    "height": "19 in",
-    "bodyLength": "22 in",
+    "tailLength": 22,
+    "height": 19,
+    "bodyLength": 22,
     "acquisitionDate": "2025-02-16",
     "acquisitionLocation": {
       "city": "Santa Fe",
@@ -709,7 +739,8 @@ const animals = [
     "trainingStatus": "Phase 3",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Guenon1.jfif"
+    "imagePath": "/images/Guenon1.jfif",
+    "description": ""
   },
   {
     "id": 32,
@@ -720,9 +751,9 @@ const animals = [
     "gender": "Female",
     "age": 3,
     "weight": 12,
-    "tailLength": "21 in",
-    "height": "18 in",
-    "bodyLength": "21 in",
+    "tailLength": 21,
+    "height": 18,
+    "bodyLength": 21,
     "acquisitionDate": "2025-08-04",
     "acquisitionLocation": {
       "city": "Albany",
@@ -734,7 +765,8 @@ const animals = [
     "trainingStatus": "Phase 2",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Guenon2.jfif"
+    "imagePath": "/images/Guenon2.jfif",
+    "description": ""
   },
 
   {
@@ -746,9 +778,9 @@ const animals = [
     "gender": "Male",
     "age": 6,
     "weight": 22,
-    "tailLength": "10 in",
-    "height": "24 in",
-    "bodyLength": "25 in",
+    "tailLength": 10,
+    "height": 24,
+    "bodyLength": 25,
     "acquisitionDate": "2024-03-30",
     "acquisitionLocation": {
       "city": "Raleigh",
@@ -760,7 +792,8 @@ const animals = [
     "trainingStatus": "In Service",
     "reserved": true,
     "graduationDate": "2025-05-17",
-    "imagePath": "/images/Macaque1.jfif"
+    "imagePath": "/images/Macaque1.jfif",
+    "description": ""
   },
   {
     "id": 34,
@@ -771,9 +804,9 @@ const animals = [
     "gender": "Female",
     "age": 4,
     "weight": 18,
-    "tailLength": "9 in",
-    "height": "22 in",
-    "bodyLength": "23 in",
+    "tailLength": 9,
+    "height": 22,
+    "bodyLength": 23,
     "acquisitionDate": "2025-01-22",
     "acquisitionLocation": {
       "city": "Bismarck",
@@ -785,7 +818,8 @@ const animals = [
     "trainingStatus": "Phase 4",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Macaque2.jfif"
+    "imagePath": "/images/Macaque2.jfif",
+    "description": ""
   },
 
   {
@@ -797,9 +831,9 @@ const animals = [
     "gender": "Male",
     "age": 3,
     "weight": 1.2,
-    "tailLength": "12 in",
-    "height": "7 in",
-    "bodyLength": "8 in",
+    "tailLength": 12,
+    "height": 7,
+    "bodyLength": 8,
     "acquisitionDate": "2025-06-18",
     "acquisitionLocation": {
       "city": "Columbus",
@@ -811,7 +845,8 @@ const animals = [
     "trainingStatus": "In Training",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Marmoset1.jfif"
+    "imagePath": "/images/Marmoset1.jfif",
+    "description": ""
   },
   {
     "id": 36,
@@ -822,9 +857,9 @@ const animals = [
     "gender": "Female",
     "age": 4,
     "weight": 1.1,
-    "tailLength": "11 in",
-    "height": "7 in",
-    "bodyLength": "8 in",
+    "tailLength": 11,
+    "height": 7,
+    "bodyLength": 8,
     "acquisitionDate": "2024-10-14",
     "acquisitionLocation": {
       "city": "Oklahoma City",
@@ -836,7 +871,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": false,
     "graduationDate": "2026-01-09",
-    "imagePath": "/images/Marmoset2.jfif"
+    "imagePath": "/images/Marmoset2.jfif",
+    "description": ""
   },
 
   {
@@ -848,9 +884,9 @@ const animals = [
     "gender": "Male",
     "age": 3,
     "weight": 2.1,
-    "tailLength": "15 in",
-    "height": "10 in",
-    "bodyLength": "11 in",
+    "tailLength": 15,
+    "height": 10,
+    "bodyLength": 11,
     "acquisitionDate": "2025-05-12",
     "acquisitionLocation": {
       "city": "Salem",
@@ -862,7 +898,8 @@ const animals = [
     "trainingStatus": "Phase 3",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/SquirrelMonkey1.jfif"
+    "imagePath": "/images/SquirrelMonkey1.jfif",
+    "description": ""
   },
   {
     "id": 38,
@@ -873,9 +910,9 @@ const animals = [
     "gender": "Female",
     "age": 4,
     "weight": 1.8,
-    "tailLength": "14 in",
-    "height": "9 in",
-    "bodyLength": "10 in",
+    "tailLength": 14,
+    "height": 9,
+    "bodyLength": 10,
     "acquisitionDate": "2024-12-06",
     "acquisitionLocation": {
       "city": "Harrisburg",
@@ -887,7 +924,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": true,
     "graduationDate": "2026-03-02",
-    "imagePath": "/images/SquirrelMonkey2.jfif"
+    "imagePath": "/images/SquirrelMonkey2.jfif",
+    "description": ""
   },
 
   {
@@ -899,9 +937,9 @@ const animals = [
     "gender": "Male",
     "age": 3,
     "weight": 1.4,
-    "tailLength": "13 in",
-    "height": "8 in",
-    "bodyLength": "9 in",
+    "tailLength": 13,
+    "height": 8,
+    "bodyLength": 9,
     "acquisitionDate": "2025-04-13",
     "acquisitionLocation": {
       "city": "Providence",
@@ -913,7 +951,8 @@ const animals = [
     "trainingStatus": "Phase 2",
     "reserved": false,
     "graduationDate": null,
-    "imagePath": "/images/Tamarin1.jfif"
+    "imagePath": "/images/Tamarin1.jfif",
+    "description": ""
   },
   {
     "id": 40,
@@ -924,9 +963,9 @@ const animals = [
     "gender": "Female",
     "age": 4,
     "weight": 1.3,
-    "tailLength": "12 in",
-    "height": "8 in",
-    "bodyLength": "9 in",
+    "tailLength": 12,
+    "height": 8,
+    "bodyLength": 9,
     "acquisitionDate": "2024-08-27",
     "acquisitionLocation": {
       "city": "Columbia",
@@ -938,7 +977,8 @@ const animals = [
     "trainingStatus": "Completed",
     "reserved": true,
     "graduationDate": "2025-11-20",
-    "imagePath": "/images/Tamarin2.jfif"
+    "imagePath": "/images/Tamarin2.jfif",
+    "description": ""
   }
 ];
 
