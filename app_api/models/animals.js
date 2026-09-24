@@ -46,8 +46,9 @@ const animalSchema = new mongoose.Schema({
     graduationDate: { type: Date },
     description: { type: String },
 
-    // img path is not yet used in the app, but it is included here for future use.
-    //imagePath: { type: String },
+    // store public image path of the animal. 
+    // new animals will have a placeholder 
+    imagePath: { type: String },
 
     // Additional fields used by monkey records.
     // These are optional because dog records do not use them.

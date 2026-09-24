@@ -558,9 +558,20 @@
     <br>
 
     <!-- Submit -->
-    <button type="submit">
-      Submit Animal
+    <button
+      type="submit"
+      [disabled]="submitting"
+    >
+      {{ submitting ? 'Submitting...' : 'Submit Animal' }}
     </button>
+
+    <p *ngIf="submitMessage">
+      {{ submitMessage }}
+    </p>
+
+    <p *ngIf="submitError">
+      {{ submitError }}
+    </p>
 
   </div>
 

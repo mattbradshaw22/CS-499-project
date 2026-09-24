@@ -1,13 +1,18 @@
 // Registers API endpoints for rescue animal data.
 
-var express = require('express');
-var router = express.Router();
-var ctrlAnimals = require('../controllers/animals');
+const express = require('express');
+const router = express.Router();
+const ctrlAnimals = require('../controllers/animals');
 
-/* GET animals list. */
-router.get('/animals', ctrlAnimals.animalsList);
+/* GET animals list. 
+* POST new animal */
+
+router
+    .route("/animals")
+    .get(ctrlAnimals.animalsList)
+    .post(ctrlAnimals.animalsAddAnimal);
 
 /* GET animal by ID. */
-router.get('/animals/:animalId', ctrlAnimals.animalsReadOne);
+router.get('/animals/:_id', ctrlAnimals.animalsReadOne);
 
 module.exports = router;

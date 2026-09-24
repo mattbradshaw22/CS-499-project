@@ -17,4 +17,7 @@ router.get('/animal-intake', ctrlAnimals.intake);
 /* GET find an animal page. */
 router.get('/find-an-animal', ctrlAnimals.find);
 
+/* GET login page. */
+router.get('/login', ctrlMain.login);
+
 module.exports = router;

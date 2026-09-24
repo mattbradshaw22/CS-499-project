@@ -13,6 +13,9 @@ var rescueAnimalsRouter = require('./app_server/routes/rescue_animals');
 var apiRouter = require('./app_api/routes/index');
 var app = express();
 
+// Bring in the database configuration to connect to MongoDB
+require('./app_api/models/db');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
@@ -27,6 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // serve built Angular files for the admin SPA
 app.use(
@@ -53,7 +57,16 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// Catch unauthorized error and create 401
+app.use(function(err, req, res, next) {
+  if(err.name === 'UnauthorizedError') {
+    res
+      .status(401)
+      .json({"message": err.name + ": " + err.message});
+  }
+});
+
+ // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

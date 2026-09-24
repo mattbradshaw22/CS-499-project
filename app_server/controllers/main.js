@@ -19,7 +19,13 @@ const about = (req, res) => {
   res.render('about', { title: 'About', about: true });
 };
 
+/* GET Login page */
+const login = (req, res) => {
+  res.render('login', { title: 'Login', login: true });
+};
+
 module.exports = {
   index,
-  about
+  about,
+  login
 };

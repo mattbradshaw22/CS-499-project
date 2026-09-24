@@ -2,6 +2,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AnimalDataService } from '../../services/animal-data.services';
+import { Animal } from '../../models/animal';
 
 @Component({
   imports: [CommonModule, ReactiveFormsModule],
@@ -11,8 +13,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class Intake {
   intakeForm: FormGroup;
+  submitting = false;
+  submitMessage = '';
+  submitError = ''
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private animalDataService: AnimalDataService) {
     this.intakeForm = this.fb.group({
       // Animal type selection
       animalType: ['', Validators.required],
@@ -131,7 +136,7 @@ export class Intake {
 
       const formValue = this.intakeForm.value;
 
-      const animal = {
+      const animal: Animal = {
         name: formValue.name,
         animalType: formValue.animalType,
 
@@ -184,8 +189,42 @@ export class Intake {
           formValue.description || ''
       };
 
-      console.log('Animal Intake Data:');
-      console.log(animal);
+      this.submitting = true;
+      this.submitMessage = '';
+      this.submitError = '';
+
+      this.animalDataService.addAnimal(animal)
+        .subscribe({
+        next: (createdAnimal: Animal) => {
+          console.log('Animal added successfully:',
+          console.log(createdAnimal));
+
+          this.submitMessage = 
+          `${createdAnimal.name} was added successfully!`;
+
+          this.submitError = '';
+          this.submitting = false;
+          this.intakeForm.reset({
+            animalType: '',
+            state: '',
+            trainingStatus: '',
+            reserved: false
+          });
+
+          // Clear success message after 3 seconds
+          setTimeout(() => {
+            this.submitMessage = '';
+          }, 3000);
+        },
+        error: (error: any) => {
+          console.error('Error adding animal:');
+          console.error(error);
+
+          this.submitError = 
+          'Failed to add animal.';
+          this.submitting = false;
+        }
+      });
 
     } else {
       this.intakeForm.markAllAsTouched();
