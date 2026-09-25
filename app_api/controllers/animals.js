@@ -54,6 +54,29 @@ const animalsReadOne = async(req, res) => {
 
 };
 
+// GET: /api/animals/name/:name
+// lists a single animal record by its name
+const animalsFindByName = async (req, res) => {
+    try {
+        const animal = await Model
+            .findOne({ name: req.params.name })
+            .collation({ locale: 'en', strength: 2 }) // case-insensitive search
+            .exec();
+
+        if (!animal) {
+            return res.status(404).json({
+                message: `Animal named "${req.params.name}" was not found.`
+            });
+        }
+
+        return res.status(200).json(animal);
+
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+};
+
+
 // POST: /animals - adds a new animal record to the database
 // regardless of outcome, response must include HTML status code
 // and JSON message to the requesting client
@@ -93,5 +116,6 @@ const animalsAddAnimal = async(req, res) => {
 module.exports = {
   animalsList,
   animalsReadOne,
-  animalsAddAnimal
+  animalsAddAnimal,
+  animalsFindByName
 };

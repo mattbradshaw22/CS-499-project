@@ -1,14 +1,18 @@
 {{!--
   Find Animal Page
-  Displays available animal records for users searching the catalog.
+  Angular Find Animal SPA mounts below.
 --}}
+
+{{!-- Angular stylesheet --}}
+<link rel="stylesheet" href="/angular/styles.css">
 
 {{!-- Page Header --}}
 <section class="page-heading">
   <h1 class="eyebrow">FIND AN ANIMAL</h1>
-  <h2>Find an Animal</h2>
-  <p>Showing {{count}} rescue animals.</p>
 </section>
 
-{{!-- Animal Cards Partial --}}
-{{> animal_cards}}
+{{!-- Angular SPA Mount Point --}}
+<div id="angular-app-root"></div>
+
+{{!-- Angular application --}}
+<script type="module" src="/angular/main.js"></script>

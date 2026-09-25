@@ -28,4 +28,10 @@ export class AnimalDataService {
   addAnimal(animal: Animal): Observable<Animal> {
     return this.http.post<Animal>(this.animalsUrl, animal);
   }
+
+  // GET: /api/animals/name/:name
+  // Retrieves a specific rescue animal record by name.
+  getAnimalByName(name: string): Observable<Animal> {
+    return this.http.get<Animal>(`${this.animalsUrl}/name/${encodeURIComponent(name)}`);
+  }
 }
