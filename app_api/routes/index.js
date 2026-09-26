@@ -16,6 +16,11 @@ router
     .route('/animals/name/:name')
     .get(ctrlAnimals.animalsFindByName);
 
+/* GET available animals using the user's entered ZIP code. */
+router
+    .route('/animals/nearby/:zip')
+    .get(ctrlAnimals.animalsFindNearby);
+
 
 /* GET animal by ID. */
 router

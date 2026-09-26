@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Animal } from '../models/animal';
+import { Animal, NearbyAnimalResponse } from '../models/animal';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +33,14 @@ export class AnimalDataService {
   // Retrieves a specific rescue animal record by name.
   getAnimalByName(name: string): Observable<Animal> {
     return this.http.get<Animal>(`${this.animalsUrl}/name/${encodeURIComponent(name)}`);
+  }
+
+  // GET: /api/animals/nearby/:zip
+  // Retrieves available rescue animals ranked by distance
+  // from the user's ZIP code.
+  getNearbyAnimals(zip: string): Observable<NearbyAnimalResponse> {
+    return this.http.get<NearbyAnimalResponse>(
+      `${this.animalsUrl}/nearby/${encodeURIComponent(zip)}`
+    );
   }
 }

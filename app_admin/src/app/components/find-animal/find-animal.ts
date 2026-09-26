@@ -6,8 +6,12 @@ import { AnimalDataService } from '../../services/animal-data.services';
 import { Animal } from '../../models/animal';
 import { AnimalCard } from '../animal-card/animal-card';
 
+// TODO: Refactor to split the components
+import { FindNearbyAnimal } from '../find-nearby-animal/find-nearby-animal';
+
+
 @Component({
-  imports: [ CommonModule, ReactiveFormsModule, AnimalCard ],
+  imports: [ CommonModule, ReactiveFormsModule, AnimalCard, FindNearbyAnimal ],
   selector: 'app-find-animal',
   styleUrl: './find-animal.css',
   templateUrl: './find-animal.html',

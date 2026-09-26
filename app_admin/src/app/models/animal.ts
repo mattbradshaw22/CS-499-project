@@ -46,3 +46,26 @@ export interface Animal {
   height?: number;
   bodyLength?: number;
 }
+
+// Represents an animal returned by the nearby search algorithm.
+// These values are calculated at runtime and are not stored in MongoDB.
+export interface NearbyAnimal extends Animal {
+  distanceMiles: number;
+  rank: number;
+  resultPosition: number;
+}
+
+// Represents the latitude and longitude of the user's ZIP code.
+export interface UserLocation {
+  latitude: number;
+  longitude: number;
+}
+
+// Represents the complete response returned by
+// GET /api/animals/nearby/:zip.
+export interface NearbyAnimalResponse {
+  zip: string;
+  userLocation: UserLocation;
+  resultCount: number;
+  animals: NearbyAnimal[];
+}
