@@ -21,11 +21,20 @@ const about = (req, res) => {
 
 /* GET Login page */
 const login = (req, res) => {
-  res.render('login', { title: 'Login', login: true });
+    res.render('login-angular', {
+        title: 'Login'
+    });
 };
 
+/* GET Register page */
+const register = (req, res) => {
+    res.render('register', {
+        title: 'Register'
+    });
+};
 module.exports = {
   index,
   about,
-  login
+  login,
+  register
 };

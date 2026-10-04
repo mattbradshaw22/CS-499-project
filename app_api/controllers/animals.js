@@ -159,7 +159,7 @@ const animalsFindNearby = async (req, res) => {
         // from this CommonJS Express controller.
         const zipcodesModule = await import('zipcodes-us');
         const zipcodes = zipcodesModule.default;
-
+        // pass the ZIP code to the zipcodes-us library to get the coordinates
         const coordinates = zipcodes.findCoordinates(zip);
 
         if (!coordinates.isValid) {

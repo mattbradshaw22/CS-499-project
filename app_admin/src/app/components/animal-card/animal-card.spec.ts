@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AnimalCard } from './animal-card';
+import { animalFixture } from '../../testing/animal.fixture';
 
 describe('AnimalCard', () => {
   let component: AnimalCard;
@@ -12,6 +13,7 @@ describe('AnimalCard', () => {
 
     fixture = TestBed.createComponent(AnimalCard);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('animal', animalFixture());
     await fixture.whenStable();
   });
 

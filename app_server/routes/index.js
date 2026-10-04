@@ -20,4 +20,7 @@ router.get('/find-an-animal', ctrlAnimals.find);
 /* GET login page. */
 router.get('/login', ctrlMain.login);
 
+/* GET register page. */
+router.get('/register', ctrlMain.register);
+
 module.exports = router;
