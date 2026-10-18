@@ -1,0 +1,6 @@
+{
+    // Purpose: Defines workspace-specific VS Code settings for the Animal Rescue project.
+    "files.watcherExclude": {
+        "**/target/**": true
+    }
+}
